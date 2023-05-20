@@ -11,7 +11,8 @@ void main() {
     late Razorpay razorpay;
 
     setUp(() {
-      channel.setMockMethodCallHandler((MethodCall call) async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (MethodCall call) async {
         log.add(call);
         return {};
       });
